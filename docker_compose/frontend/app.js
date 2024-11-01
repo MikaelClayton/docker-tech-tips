@@ -1,5 +1,6 @@
+const backendUrl = 'http://localhost:3000/api/todo';
 function putTodo(todo) {
-    fetch(window.location.href + 'api/todo', {
+    fetch(backendUrl, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -12,7 +13,7 @@ function putTodo(todo) {
 }
 
 function postTodo(todo) {
-    fetch(window.location.href + 'api/todo', {
+    fetch(backendUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -25,7 +26,7 @@ function postTodo(todo) {
 }
 
 function deleteTodo(todo) {
-    fetch(window.location.href + 'api/todo', {
+    fetch(backendUrl, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -38,14 +39,14 @@ function deleteTodo(todo) {
 }
 
 function getTodos() {
-    fetch(window.location.href + 'api/todo')
+    fetch(backendUrl)
         .then(response => response.json())
         .then(json => drawTodos(json))
         .catch(error => showToastMessage('Failed to retrieve todos...'));
 }
 
 function getEnvVariables() {
-    fetch(window.location.href + 'api/todo', {
+    fetch(backendUrl, {
         method: 'OPTIONS',
         headers: {
             'Content-Type': 'application/json',
@@ -58,3 +59,5 @@ function getEnvVariables() {
 
 getEnvVariables();
 getTodos();
+
+

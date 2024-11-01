@@ -1,0 +1,9 @@
+services:
+  docker-tech-tips:
+    image: mikaelismail1/todos:v2
+    volumes:
+      - ./todo.json:/var/www/html/api/todo.json
+    env_file:
+      - .env
+    ports:
+      - 8080:80
