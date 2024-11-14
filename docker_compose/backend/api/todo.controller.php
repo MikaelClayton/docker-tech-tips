@@ -2,12 +2,16 @@
 require_once("todo.class.php");
 
 class TodoController {
-    private const PATH = __DIR__."/todo.json";
     private array $todos = [];
     private mysqli $DatabaseObj;
 
     public function __construct() {
-        $this->DatabaseObj = new mysqli("database", "root", "secret", "todos");
+        $this->DatabaseObj = new mysqli(
+            getenv("HOSTNAME"),
+            getenv("USERNAME"),
+            getenv("PASSWORD"),
+            getenv("DATABASE"),
+        );
 
         if ($this->DatabaseObj->connect_error) {
             error_log("Connection failed: ".$this->DatabaseObj->connect_error);
