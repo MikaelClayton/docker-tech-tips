@@ -7,10 +7,10 @@ class TodoController {
 
     public function __construct() {
         $this->DatabaseObj = new mysqli(
-            getenv("HOSTNAME"),
-            getenv("USERNAME"),
-            getenv("PASSWORD"),
-            getenv("DATABASE"),
+            getenv("DB_SERVER"),
+            getenv("DB_USERNAME"),
+            getenv("DB_PASSWORD"),
+            getenv("DB_NAME"),
         );
 
         if ($this->DatabaseObj->connect_error) {

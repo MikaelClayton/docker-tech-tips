@@ -4,8 +4,7 @@ services:
     ports:
       - 8080:80
   backend:
-    build: ./backend/
-#    image: mikaelismail1/todos:backend-v2
+    image: mikaelismail1/todos:backend-v2
     env_file:
       - backend/.env
     ports:
